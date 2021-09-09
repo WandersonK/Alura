@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js", //Esse é o local de destino do JS, onde vai gerar os arquivos
+        "target": "ES6", //Versão do JS que o compilador TS vai converter
+        "noEmitOnError": true, //Faz com que não gere o arquivo JS enquanto ele não passar na compilação, ou seja, se estiver com erro no TS
+        "noImplicitAny": true //Faz com que o TS não permita o uso do "any" implicitamente nas variáveis, a não ser que nós o informemos
+    },
+    "include": [
+        "app/**/*" //O local onde o compilador vai pegar os arquivos TS para serem convertidos em JS
+                   //Todos os arquivos da pasta "app" e suas subpastas "**/*"
+                   //Caso tenha mais pastas, basta colocar uma vírgula e adicionar
+    ]
+}
