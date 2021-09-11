@@ -17,9 +17,12 @@
 
     //var numeroPensado = Math.round(Math.random() * 100);
 
+    // O limite de intervalo pode ser passado pelo usuário da seguinte forma:
     var numIntervalo = parseInt(prompt("Informe um número para limitar o intervalo."));
-
     var numeroPensado = sorteia(numIntervalo);
+
+    // O limite de intervalo pode ser passado direto no código da seguinte forma:
+    // var numeroPensado = sorteia(10); // Basta descomentar essa linha, e comentar as linhas 21 e 22.
 
     var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
 
