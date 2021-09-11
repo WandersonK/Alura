@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<script>
+
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+    
+    var solicitacaoLogin = "";
+    var solicitacaoSenha = "";   
+
+    var tentativas = 1;
+    var status = "Inválido";
+
+    while(tentativas <= 3 && status == "Inválido") {
+        solicitacaoLogin = prompt("Informe seu Login.");       
+        solicitacaoSenha = prompt("Informe sua Senha.");
+
+        if(solicitacaoLogin == loginCadastrado && solicitacaoSenha == senhaCadastrada) {
+            document.write("Login realizado com sucesso!");
+            status = "Válido";
+
+        }else{
+            tentativas++;
+            status = "Inválido";
+        }
+    }
+
+</script>
