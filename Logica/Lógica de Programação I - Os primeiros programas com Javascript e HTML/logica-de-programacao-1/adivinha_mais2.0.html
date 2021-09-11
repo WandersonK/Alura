@@ -1,0 +1,68 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+
+    function sorteia() { // Esta função irá gerar os números aleatórios, neste caso entre 0 e 10.
+        return Math.round(Math.random() * 10); // round: arredonda *|* random: gera os números aleatórios de 0 até 1 (não apresentando o nº 1, somente o 0 e seu intervalo) *|* A multiplicação por 10 é para mover a casa decimal e definir números de 0 até 10. Ex: 0,9999*10 = 9,999, arredondando vai pra 10.
+    }
+
+    function sorteiaNumeros(qtd) { // Esta função terá o papel de verificar se existem números repetidos, número 0 e fará a inclusão (push) do valor no Array.
+        var segredos = []; // Aqui criou-se o Array.
+
+        var numero = 1; // Este é o contador para repetição do While
+
+        while(numero <= qtd) { // While para incrementar números no Array, verificar se existem duplicados e nulos.
+
+            var numeroAleatorio = sorteia(); // Essa variável vai receber o número gerado pela função "sorteia".
+
+            if(numeroAleatorio !== 0) { // Verifica se o nº gerado é diferente de 0, se for, ele executará o bloco.
+                var achou = false; // Esta variável define se o número será lançado no Array ou não. Se falsa, adiciona, se verdadeira, não adiciona.
+
+                for (var posicao = 0; posicao < segredos.length; posicao++) {
+                    if(segredos[posicao] == numeroAleatorio) { // Este IF, atrelado a repetição FOR irá verificar se o número gerado já existe no Array, posição por posição (For gera a posição), ou seja, se é repetido.
+                        achou = true; // Aqui a variável "achou" não deixará o incremento do número repetido no Array
+                        break;
+                    }
+                }
+                if (achou == false) { // Este if fará o processo de adicionar o valor no Array, caso ele não seja repetido.
+                    segredos.push(numeroAleatorio); // Faz o incremento no Array.
+                    numero++; // Soma mais 1 no contador do While, para comparar a estrutura conforme tamanho do Array definido na variável "segredos", recebido em "qtd" nesta função (sorteiaNumeros).
+                }
+            }
+            
+        }
+        return segredos; // Retorna o Array.
+    }
+
+    var segredos = sorteiaNumeros(10); // Define a quantidade de números que o Array terá.
+
+    console.log(segredos); // Aqui apenas mostra no Console do navegador os números do Array, para o programador conferir.
+
+    var input = document.querySelector("input"); // Pega o valor informado na caixa de input no mundo HTML, e adiciona na variável input no mundo JS
+    input.focus(); // Já coloca o cursor de inserção na caixa do input.
+
+    function verifica() { // Esta função verificará se o usuário acertou ou errou o chute.
+
+        var achou = false;
+        for(var posicao = 0; posicao < segredos.length; posicao++) { // Verifica no Array, posição por posição se o chute está contido.
+            if(input.value == segredos[posicao]) { // Verifica se o usuário acertou o chute.
+                alert("Você ACERTOU!"); // Exibe a mensagem caso acertar.
+                achou = true;
+                break;
+            }
+        }
+        if(achou == false) { // Verifica se o usuário errou o chute.
+            alert("Você ERROU!"); // Exibe a mensagem caso errar.
+        }
+        input.value = ""; // Limpa a caixa de inserção do input após as verificações
+        input.focus(); // Mantém o foco na caixa de inserção.
+    }
+
+    var button = document.querySelector("button"); // Recebe a ação (clica ou não clica) do botão no mundo HTML e armazena na variável button no mundo js
+    button.onclick = verifica; // Realiza a ação de exibir a função verifica, após o botão ser clicado.
+    
+
+</script>

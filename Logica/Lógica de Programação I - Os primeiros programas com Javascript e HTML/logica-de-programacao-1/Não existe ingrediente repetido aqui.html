@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+
+<h1>Receitas do Yan</h1>
+
+<script>
+// ****** Minha resolução ******
+    var ingredientes = [];
+
+    var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
+
+    var contador = 1;
+    
+    while(contador <= quantidade) {
+        var ingrediente = prompt("Informe o ingrediente " + contador);
+        
+        i = 0;
+        while(i < quantidade) {
+            var s = 0;
+            for(ifor = 0; ifor < ingredientes.length; ifor++) {
+                if(ingrediente !== ingredientes[ifor]) {
+                    s++;
+                }
+            }
+
+            if(s == quantidade) {
+                ingredientes.push(ingrediente);
+                break;
+            } else{
+                ingrediente = prompt("O ingrediente informado já existe na Lista, informe outro.");
+            }
+        }
+        
+        contador++;
+    }
+
+    console.log(ingredientes);
+
+// ******* Resolução do Professor ******
+
+// var ingredientes = [];
+
+//     var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
+
+//     var contador = 1;
+
+//     while( contador <= quantidade) {
+
+//         var ingrediente = prompt("Informe o ingrediente " + contador);
+
+//         var existe = false;
+
+//         for( var posicao = 0; posicao < ingredientes.length; posicao++) {
+
+//             if( ingredientes[posicao] == ingrediente) {
+
+//                 existe = true;
+//                 break;
+//             }
+//         }
+
+//         if( existe == false) {
+
+//             ingredientes.push(ingrediente);
+//             contador++;
+//         }
+//     }
+
+//     console.log(ingredientes);
+
+</script>
