@@ -24,17 +24,20 @@
     var x = 20;
     function atualizaTela() {
 
+
         
-        
-        if (x < 590) {
+        if (x <= 590) {
             limpaTela();
             desenhaCirculo(x, 20, 10);
             x++;
-         } //else if(x >= 590) {
-        // limpaTela();
-        // desenhaCirculo(x, 20, 10);
-        // x--;
-        // }
+         }
+        if(x >= 590) {
+            for // Fazer um for ate q seja menor ou igual a 20 ou outro valor do lado x esquerdo
+            limpaTela();
+            desenhaCirculo(x, 20, 10);
+            x--;
+        }
+
     }
     setInterval(atualizaTela, 10);
     
