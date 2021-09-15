@@ -5,38 +5,39 @@
     var tela = document.querySelector('canvas');
     var pincel = tela.getContext('2d');
 
-    pincel.fillStyle = 'grey';
+    pincel.fillStyle = 'lightgray';
     pincel.fillRect(0, 0, 600, 400);
 
-    var cores = ['blue', 'red', 'green'];
-    var i = 0;
+    function desenhaCirculo(x, y, raio) {
 
-    function desenhaCirculo(evento) {
-        
-        
-        var x = evento.pageX - tela.offsetLeft;
-        var y = evento.pageY - tela.offsetTop;
-        pincel.fillStyle = cores[i];
+        pincel.fillStyle = 'blue';
         pincel.beginPath();
-        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
         pincel.fill();
-        console.log(x + ',' + y);
-        
-        
     }
 
-    tela.onclick = desenhaCirculo;
+    function limpaTela() {
 
-    function mudaCor() {
-
-        i++;
-        if (i >= cores.length) {
-            i = 0;
-        }
-
-        return false;
+        pincel.clearRect(0, 0, 600, 400);
     }
     
-    tela.oncontextmenu = mudaCor;
+    var x = 20;
+    function atualizaTela() {
+
+        
+        
+        if (x < 590) {
+            limpaTela();
+            desenhaCirculo(x, 20, 10);
+            x++;
+         } //else if(x >= 590) {
+        // limpaTela();
+        // desenhaCirculo(x, 20, 10);
+        // x--;
+        // }
+    }
+    setInterval(atualizaTela, 10);
+    
+    
     
 </script>
