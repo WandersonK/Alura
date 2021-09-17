@@ -34,7 +34,7 @@
         pincel.clearRect(0, 0, 600, 400);
     }
 
-    function atualizaTela() {
+    function atualizaTela(x, y) {
 
         limpaTela();
         desenhaCirculo(x, y, 10);
@@ -45,12 +45,19 @@
 
     function leDoTeclado(evento) {
 
+        if (evento.keyCode == esquerda) {
+            x = x - taxa;
+        } else if (evento.keyCode == direita) {
+            x = x + taxa;
+        }
+        if (evento.keyCode == cima) {
+            y = y - taxa;
+        } else if (evento.keyCode == baixo) {
+            y = y + taxa;
+        }
+        console.log(evento.keyCode);
 
-    Teste   PC2.0     
-
-        atualizaTela();
-
-
+        atualizaTela(x, y);
 
     }
 
